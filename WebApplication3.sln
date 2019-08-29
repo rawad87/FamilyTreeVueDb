@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyTreeVueDb", "WebApplication3\FamilyTreeVueDb.csproj", "{967B374A-159F-411A-BE3D-AE2B50FB5B64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{967B374A-159F-411A-BE3D-AE2B50FB5B64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{967B374A-159F-411A-BE3D-AE2B50FB5B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{967B374A-159F-411A-BE3D-AE2B50FB5B64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{967B374A-159F-411A-BE3D-AE2B50FB5B64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {734AC277-15E9-42DC-B334-A6C81ACBE524}
+	EndGlobalSection
+EndGlobal

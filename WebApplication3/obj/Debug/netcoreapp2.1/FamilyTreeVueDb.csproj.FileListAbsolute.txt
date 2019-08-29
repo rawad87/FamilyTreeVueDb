@@ -1,0 +1,11 @@
+C:\Users\sadki\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.1\FamilyTreeVueDb.deps.json
+C:\Users\sadki\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.1\FamilyTreeVueDb.runtimeconfig.json
+C:\Users\sadki\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.1\FamilyTreeVueDb.runtimeconfig.dev.json
+C:\Users\sadki\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp2.1\FamilyTreeVueDb.dll
+C:\Users\sadki\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.1\FamilyTreeVueDb.csprojAssemblyReference.cache
+C:\Users\sadki\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.1\FamilyTreeVueDb.csproj.CoreCompileInputs.cache
+C:\Users\sadki\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.1\FamilyTreeVueDb.RazorAssemblyInfo.cache
+C:\Users\sadki\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.1\FamilyTreeVueDb.RazorAssemblyInfo.cs
+C:\Users\sadki\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.1\FamilyTreeVueDb.AssemblyInfoInputs.cache
+C:\Users\sadki\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.1\FamilyTreeVueDb.AssemblyInfo.cs
+C:\Users\sadki\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp2.1\FamilyTreeVueDb.RazorTargetAssemblyInfo.cache
