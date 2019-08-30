@@ -6,6 +6,7 @@ using Dapper;
 using FamilyTreeVeuDb.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace FamilyTreeVueDb.Controllers
 {
@@ -13,28 +14,34 @@ namespace FamilyTreeVueDb.Controllers
     [ApiController]
     public class PeopleController : ControllerBase //, IPeopleController
     {
-        private readonly SqlConnection _connection;
+        private string _connectionString;
 
-        public PeopleController(SqlConnection connection)
+        public PeopleController(IConfiguration configuration)
         {
-            _connection = connection;
+            _connectionString = configuration.GetConnectionString("FamilyDb");
         }
 
         // GET: api/People
         [HttpGet]
         public async Task<IEnumerable<Person>> GetPersonAsync()
         {
-            var sql = @"select * from person";
-            return await _connection.QueryAsync<Person>(sql);
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var sql = @"select * from personinfo";
+                return await connection.QueryAsync<Person>(sql);
+            }
         }
 
         // GET: api/People/5
         [HttpGet("{id}")]
         public async Task<Person> GetPerson([FromRoute] int id)
         {
-            var sql = @"select * from person where id = @Id";
-            var result = await _connection.QueryAsync<Person>(sql, new { Id = id });
-            return result.FirstOrDefault();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var sql = @"select * from personinfo where id = @Id";
+                var result = await connection.QueryAsync<Person>(sql, new { Id = id });
+                return result.FirstOrDefault();
+            }
         }
 
         /*
