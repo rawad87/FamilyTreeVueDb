@@ -350,3 +350,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+WebApplication3/obj/Debug/netcoreapp2.1/FamilyTreeVueDb.csproj.CoreCompileInputs.cache
