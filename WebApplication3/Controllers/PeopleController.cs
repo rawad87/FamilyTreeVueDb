@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using FamilyTreeVeuDb.Model;
@@ -10,7 +11,7 @@ namespace FamilyTreeVueDb.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PeopleController : ControllerBase
+    public class PeopleController : ControllerBase //, IPeopleController
     {
         private readonly SqlConnection _connection;
 
@@ -23,30 +24,20 @@ namespace FamilyTreeVueDb.Controllers
         [HttpGet]
         public async Task<IEnumerable<Person>> GetPersonAsync()
         {
-           var sql = @"INSERT INTO PersonInfo (FirstName, LastName, MiddleName, PlaceOfBirth, DateOfBirth, LifeStatus, FatherId)                         
-                            VALUES (@FirstName, @LastName, @MiddleName, @PlaceOfBirth, @DateOfBirth, @LifeStatus, @FatherId)";
-            return await _connection.ExecuteAsync(sql, Person);
+            var sql = @"select * from person";
+            return await _connection.QueryAsync<Person>(sql);
         }
 
         // GET: api/People/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetPerson([FromRoute] int id)
+        public async Task<Person> GetPerson([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var person = await _connection.Person.FindAsync(id);
-
-            if (person == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(person);
+            var sql = @"select * from person where id = @Id";
+            var result = await _connection.QueryAsync<Person>(sql, new { Id = id });
+            return result.FirstOrDefault();
         }
 
+        /*
         // PUT: api/People/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPerson([FromRoute] int id, [FromBody] Person person)
@@ -122,5 +113,6 @@ namespace FamilyTreeVueDb.Controllers
         {
             return _connection.Person.Any(e => e.Id == id);
         }
+        */
     }
 }
