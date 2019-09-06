@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using FamilyTreeVeuDb.Model;
+using FamilyTreeVueDb.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -25,101 +27,103 @@ namespace FamilyTreeVueDb.Controllers
         [HttpGet]
         public async Task<IEnumerable<Person>> GetPersonAsync()
         {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                var sql = @"select * from personinfo";
-                return await connection.QueryAsync<Person>(sql);
-            }
+            var personRepository = new PersonRepository(_connectionString);
+            return await personRepository.ReadAll();
         }
 
         // GET: api/People/5
         [HttpGet("{id}")]
         public async Task<Person> GetPerson([FromRoute] int id)
         {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                var sql = @"select * from personinfo where id = @Id";
-                var result = await connection.QueryAsync<Person>(sql, new { Id = id });
-                return result.FirstOrDefault();
-            }
+            var personRepository = new PersonRepository(_connectionString);
+            return await personRepository.GetPerson();
+
+            //using (var connection = new SqlConnection(_connectionString))
+            //{
+            //    var sql = @"select * from personinfo where id = @Id";
+            //    var result = await connection.QueryAsync<Person>(sql, new { Id = id });
+            //    return result.FirstOrDefault();
+            //}
         }
 
-        /*
+
         // PUT: api/People/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPerson([FromRoute] int id, [FromBody] Person person)
+        public async Task<int> Create([FromRoute] int id, [FromBody] Person person)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            var personRepository = new PersonRepository(_connectionString);
+            return await personRepository.Create(new Person {FirstName= "Geir",LastName= "xx", MiddleName= "dd", PlaceOfBirth = "Larvik", DateOfBirth = new DateTime(1960, 12, 12), LifeStatus="Alive" });
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
-            if (id != person.Id)
-            {
-                return BadRequest();
-            }
+            //if (id != person.Id)
+            //{
+            //    return BadRequest();
+            //}
 
-            _connection.Entry(person).State = EntityState.Modified;
+            //_connection.Entry(person).State = EntityState.Modified;
 
-            try
-            {
-                await _connection.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PersonExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            //try
+            //{
+            //    await _connection.SaveChangesAsync();
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!PersonExists(id))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
 
-            return NoContent();
+            //return NoContent();
         }
 
-        // POST: api/People
-        [HttpPost]
-        public async Task<IActionResult> PostPerson([FromBody] Person person)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST: api/People
+        //[HttpPost]
+        //public async Task<IActionResult> PostPerson([FromBody] Person person)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            _connection.Person.Add(person);
-            await _connection.SaveChangesAsync();
+        //    _connection.Person.Add(person);
+        //    await _connection.SaveChangesAsync();
 
-            return CreatedAtAction("GetPerson", new { id = person.Id }, person);
-        }
+        //    return CreatedAtAction("GetPerson", new { id = person.Id }, person);
+        //}
 
-        // DELETE: api/People/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePerson([FromRoute] int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// DELETE: api/People/5
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> DeletePerson([FromRoute] int id)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            var person = await _connection.Person.FindAsync(id);
-            if (person == null)
-            {
-                return NotFound();
-            }
+        //    var person = await _connection.Person.FindAsync(id);
+        //    if (person == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _connection.Person.Remove(person);
-            await _connection.SaveChangesAsync();
+        //    _connection.Person.Remove(person);
+        //    await _connection.SaveChangesAsync();
 
-            return Ok(person);
-        }
+        //    return Ok(person);
+        //}
 
-        private bool PersonExists(int id)
-        {
-            return _connection.Person.Any(e => e.Id == id);
-        }
-        */
+        //private bool PersonExists(int id)
+        //{
+        //    return _connection.Person.Any(e => e.Id == id);
+        //}
+
     }
 }
