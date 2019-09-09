@@ -25,7 +25,7 @@ namespace FamilyTreeVueDb.Controllers
 
         // GET: api/People
         [HttpGet]
-        public async Task<IEnumerable<Person>> GetPersonAsync()
+        public async Task<IEnumerable<Person>> GetWholeTable()
         {
             var personRepository = new PersonRepository(_connectionString);
             return await personRepository.ReadAll();
@@ -36,94 +36,40 @@ namespace FamilyTreeVueDb.Controllers
         public async Task<Person> GetPerson([FromRoute] int id)
         {
             var personRepository = new PersonRepository(_connectionString);
-            return await personRepository.GetPerson();
-
-            //using (var connection = new SqlConnection(_connectionString))
-            //{
-            //    var sql = @"select * from personinfo where id = @Id";
-            //    var result = await connection.QueryAsync<Person>(sql, new { Id = id });
-            //    return result.FirstOrDefault();
-            //}
+            return await personRepository.GetPerson(id);
         }
 
-
-        // PUT: api/People/5
-        [HttpPut("{id}")]
-        public async Task<int> Create([FromRoute] int id, [FromBody] Person person)
+        [HttpGet(template: "/{id}/{fatherId}")]
+        public async Task<IEnumerable<Person>> GetFamilyByFatherId([FromRoute] int id, [FromRoute] int fatherId)
         {
             var personRepository = new PersonRepository(_connectionString);
-            return await personRepository.Create(new Person {FirstName= "Geir",LastName= "xx", MiddleName= "dd", PlaceOfBirth = "Larvik", DateOfBirth = new DateTime(1960, 12, 12), LifeStatus="Alive" });
-            //if (!ModelState.IsValid)
-            //{
-            //    return BadRequest(ModelState);
-            //}
-
-            //if (id != person.Id)
-            //{
-            //    return BadRequest();
-            //}
-
-            //_connection.Entry(person).State = EntityState.Modified;
-
-            //try
-            //{
-            //    await _connection.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!PersonExists(id))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
-
-            //return NoContent();
+            return await personRepository.ReadFamily(fatherId, id);
         }
 
-        //// POST: api/People
-        //[HttpPost]
-        //public async Task<IActionResult> PostPerson([FromBody] Person person)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
 
-        //    _connection.Person.Add(person);
-        //    await _connection.SaveChangesAsync();
+        // POST: api/People/
+        [HttpPost]
+        public async Task<int> CreatePerson([FromBody] Person person)
+        {
+            var personRepository = new PersonRepository(_connectionString);
+                return await personRepository.Create(person);
+        }
 
-        //    return CreatedAtAction("GetPerson", new { id = person.Id }, person);
-        //}
+        // PATCH api/People/5
+        [HttpPatch(template: "{id}")]
+        public async Task<int> UpdatePerson([FromBody] Person person)
+        {
+            var personRepository = new PersonRepository(_connectionString);
+            return await personRepository.Update(person);
+        }
 
-        //// DELETE: api/People/5
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeletePerson([FromRoute] int id)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    var person = await _connection.Person.FindAsync(id);
-        //    if (person == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    _connection.Person.Remove(person);
-        //    await _connection.SaveChangesAsync();
-
-        //    return Ok(person);
-        //}
-
-        //private bool PersonExists(int id)
-        //{
-        //    return _connection.Person.Any(e => e.Id == id);
-        //}
+        // DELETE api/People/5
+        [HttpDelete(template: "{id}")]
+        public async Task<int> DeletePerson([FromBody] Person person)
+        {
+            var personRepository = new PersonRepository(_connectionString);
+            return await personRepository.Delete(person);
+        }
 
     }
 }
