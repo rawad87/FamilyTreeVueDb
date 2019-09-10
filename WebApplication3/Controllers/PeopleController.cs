@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Dapper;
 using FamilyTreeVeuDb.Model;
 using FamilyTreeVueDb.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace FamilyTreeVueDb.Controllers

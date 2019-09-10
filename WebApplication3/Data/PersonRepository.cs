@@ -55,11 +55,11 @@ namespace FamilyTreeVueDb.Data
                                 SELECT p.*, f.FirstName FatherFirstName
                                 FROM PersonInfo p
                                     LEFT JOIN PersonInfo f ON p.FatherId = f.Id
-                                WHERE p.Id = @ID
+                                WHERE p.Id = @id
                                 UNION
                                 SELECT * , '' FatherFirstName
                                     FROM PersonInfo
-                                WHERE FatherId = @ID";
+                                WHERE FatherId = @id";
                 return await conn.QueryAsync<Person>(sql, (fatherId, id));
             }
         }
