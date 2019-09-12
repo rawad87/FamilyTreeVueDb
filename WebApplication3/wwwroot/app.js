@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f97726fc004a8d77474c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f7a4315efe53c2a240dc"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -12992,7 +12992,7 @@ exports = module.exports = __webpack_require__(6)(true);
 
 
 // module
-exports.push([module.i, "\n#app {\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-align: center;\n  color: #2c3e50;\n  margin-top: 60px;\n}\n", "", {"version":3,"sources":["C:/Users/sadki/Documents/GitHub/FamilyTreeVueDb/WebApplication3/vueclient/src/App.vue"],"names":[],"mappings":";AACA;EACE,oDAAoD;EACpD,oCAAoC;EACpC,mCAAmC;EACnC,mBAAmB;EACnB,eAAe;EACf,iBAAiB;CAClB","file":"App.vue","sourcesContent":["\n#app {\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-align: center;\n  color: #2c3e50;\n  margin-top: 60px;\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n#app {\r\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  margin-top: 60px;\n}\r\n", "", {"version":3,"sources":["C:/Users/Brage/source/repos/GETit/FamilyTreeVueDb/WebApplication3/vueclient/src/App.vue"],"names":[],"mappings":";AACA;EACE,oDAAoD;EACpD,oCAAoC;EACpC,mCAAmC;EACnC,mBAAmB;EACnB,eAAe;EACf,iBAAiB;CAClB","file":"App.vue","sourcesContent":["\n#app {\r\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  margin-top: 60px;\n}\r\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -13006,7 +13006,7 @@ exports = module.exports = __webpack_require__(6)(true);
 
 
 // module
-exports.push([module.i, "\nh1[data-v-469af010], h2[data-v-469af010] {\n  font-weight: normal;\n}\nul[data-v-469af010] {\n  list-style-type: none;\n  padding: 0;\n}\nli[data-v-469af010] {\n  display: inline-block;\n  margin: 0 10px;\n}\na[data-v-469af010] {\n  color: #42b983;\n}\n", "", {"version":3,"sources":["C:/Users/sadki/Documents/GitHub/FamilyTreeVueDb/WebApplication3/vueclient/src/components/HelloWorld.vue"],"names":[],"mappings":";AACA;EACE,oBAAoB;CACrB;AACD;EACE,sBAAsB;EACtB,WAAW;CACZ;AACD;EACE,sBAAsB;EACtB,eAAe;CAChB;AACD;EACE,eAAe;CAChB","file":"HelloWorld.vue","sourcesContent":["\nh1[data-v-469af010], h2[data-v-469af010] {\n  font-weight: normal;\n}\nul[data-v-469af010] {\n  list-style-type: none;\n  padding: 0;\n}\nli[data-v-469af010] {\n  display: inline-block;\n  margin: 0 10px;\n}\na[data-v-469af010] {\n  color: #42b983;\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, "\nh1[data-v-469af010], h2[data-v-469af010] {\r\n  font-weight: normal;\n}\nul[data-v-469af010] {\r\n  list-style-type: none;\r\n  padding: 0;\n}\nli[data-v-469af010] {\r\n  display: inline-block;\r\n  margin: 0 10px;\n}\na[data-v-469af010] {\r\n  color: #42b983;\n}\r\n", "", {"version":3,"sources":["C:/Users/Brage/source/repos/GETit/FamilyTreeVueDb/WebApplication3/vueclient/src/components/HelloWorld.vue"],"names":[],"mappings":";AACA;EACE,oBAAoB;CACrB;AACD;EACE,sBAAsB;EACtB,WAAW;CACZ;AACD;EACE,sBAAsB;EACtB,eAAe;CAChB;AACD;EACE,eAAe;CAChB","file":"HelloWorld.vue","sourcesContent":["\nh1[data-v-469af010], h2[data-v-469af010] {\r\n  font-weight: normal;\n}\nul[data-v-469af010] {\r\n  list-style-type: none;\r\n  padding: 0;\n}\nli[data-v-469af010] {\r\n  display: inline-block;\r\n  margin: 0 10px;\n}\na[data-v-469af010] {\r\n  color: #42b983;\n}\r\n"],"sourceRoot":""}]);
 
 // exports
 
