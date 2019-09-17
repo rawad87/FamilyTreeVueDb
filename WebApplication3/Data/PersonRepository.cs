@@ -20,7 +20,7 @@ namespace FamilyTreeVueDb.Data
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var sql = @"select * from personinfo where id = @Id";
+                var sql = @"select * from PersonInfo where id = @Id";
                 var result = await connection.QueryAsync<Person>(sql, new { Id = id });
                 return result.FirstOrDefault();
             }
@@ -29,7 +29,7 @@ namespace FamilyTreeVueDb.Data
         {
             using (var conn = new SqlConnection(_connectionString))
             {
-                var sql = @"SELECT Id, FirstName, LastName, DateOfBirth
+                var sql = @"SELECT *
                             FROM PersonInfo";
                 return await conn.QueryAsync<Person>(sql);
             }
